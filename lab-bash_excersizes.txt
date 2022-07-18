@@ -1,0 +1,137 @@
+Week 1, Day 1 
+Lab-bash Oriana Genolet 
+
+Using the echo command print in console "Hello World”.
+(base) origenolet@aircabrelet lab-bash % echo "Hello World”
+Hello World
+
+Create a new directory called new_dir.
+(base) origenolet@aircabrelet lab-bash % mkdir new_dir
+(base) origenolet@aircabrelet lab-bash % ls
+exercices	lorem		new_dir		readme.md
+inputs		lorem-copy	outputs
+
+
+Delete/Remove the directory new_dir.
+
+(base) origenolet@aircabrelet lab-bash % rm -r new_dir
+(base) origenolet@aircabrelet lab-bash % ls
+exercices	lorem		outputs
+inputs		lorem-copy	readme.md
+
+
+Copy the file sed.txt from the lorem folder and paste it to the folder lorem-copy folder.
+
+(base) origenolet@aircabrelet lab-bash % mv ./lorem/sed.txt ./lorem-copy/sed.txt
+(base) origenolet@aircabrelet lab-bash % ls ./lorem
+at.txt		at.txte		lorem.txt
+(base) origenolet@aircabrelet lab-bash %  ls ./lorem-copy
+dummy_file.txt	sed.txt
+(base) origenolet@aircabrelet lab-bash %
+
+
+Show the at.txt file and lorem.txt file contents from lorem folder.
+
+(base) origenolet@aircabrelet lab-bash % cat ./lorem/at.txt
+At vero eos ET accusamus ET iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+deleniti atque corrupti quos dolores ET quas molestias excepturi sint occaecati cupiditate non
+provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum ET dolorum fuga.
+Et harum quidem rerum facilis est ET expedita distinctio.
+Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+Temporibus autem quibusdam ET aut officiis debitis aut rerum necessitatibus saepe eveniET
+ut ET voluptates repudiandae sint ET molestiae non recusandae.
+Itaque earum rerum hic tenETur a sapiente delectus, ut aut reiciendis voluptatibus maiores
+alias consequatur aut perferendis doloribus asperiores repellat
+
+
+
+(base) origenolet@aircabrelet lab-bash % cat ./lorem/lorem.txt
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.%
+
+Print the first 3 rows in sed.txt file from lorem-copy folder.
+
+(base) origenolet@aircabrelet lorem-copy % head -3 sed.txt
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+
+Print the last 3 rows in sed.txt file from lorem-copy folder.
+
+(base) origenolet@aircabrelet lorem-copy % tail -3 sed.txt
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam,
+nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?Homo homini lupus
+
+Add Homo homini lupus. at the end of sed.txt file in the lorem-copy folder.
+
+(base) origenolet@aircabrelet lorem-copy % echo "Homo homini lupus" >> sed.txt
+
+Print the last 3 rows in sed.txt file from lorem-copy folder. You should see Homo homini lupus..
+
+(base) origenolet@aircabrelet lorem-copy % tail -3 sed.txt
+nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?Homo homini lupus
+Homo homini lupus
+
+sed command is used to replace the text in a file. Use the sed command to replace all occurances of et with ET in the file at.txt file present in the folder lorem.
+
+(base) origenolet@aircabrelet lorem % sed "s/et/ET/g" at.txt
+At vero eos ET accusamus ET iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+deleniti atque corrupti quos dolores ET quas molestias excepturi sint occaecati cupiditate non
+provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum ET dolorum fuga.
+Et harum quidem rerum facilis est ET expedita distinctio.
+Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+Temporibus autem quibusdam ET aut officiis debitis aut rerum necessitatibus saepe eveniET
+ut ET voluptates repudiandae sint ET molestiae non recusandae.
+Itaque earum rerum hic tenETur a sapiente delectus, ut aut reiciendis voluptatibus maiores
+alias consequatur aut perferendis doloribus asperiores repellat
+
+Find who is the system user.
+
+(base) origenolet@aircabrelet lorem % whoami
+origenolet
+
+Find the current path of the directory you are in.
+
+(base) origenolet@aircabrelet lorem % pwd
+/Users/origenolet/Desktop/Ironhack/Week1/Day1/lab-bash/lorem
+
+List all files with the extension .txt in lorem folder.
+
+(base) origenolet@aircabrelet lorem % ls *.txt
+at.txt		lorem.txt
+
+Count the rows in sed.txt file from lorem folder. Look concatenate cat and wc with the pipe |.
+
+(base) origenolet@aircabrelet lorem-copy % cat sed.txt | wc -l
+      10
+
+Count the files which start with lorem in all directories.
+
+
+(base) origenolet@aircabrelet lab-bash % ls lorem* | wc -l
+       8
+
+
+BONUS 
+
+Store your name in a variable with read command
+Print that variable.
+Create a new directory named with variable name.
+Remove that directory.
+
+(base) origenolet@aircabrelet lab-bash % read var1
+Oriana
+(base) origenolet@aircabrelet lab-bash % mkdir $var1
+(base) origenolet@aircabrelet lab-bash % ls
+Oriana		inputs		lorem-copy	readme.md
+exercices	lorem		outputs
+(base) origenolet@aircabrelet lab-bash % rm -r Oriana
+(base) origenolet@aircabrelet lab-bash % ls
+exercices	lorem		outputs
+inputs		lorem-copy	readme.md
